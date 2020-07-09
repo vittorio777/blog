@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+
+
+
+<title>python数据结构v1 | Hexo</title>
+
+
+
+    <link rel="icon" href="/blog/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/blog/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/blog/js/script.js"></script>
+    
+    <script src="/blog/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/blog/">HOME</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/blog/archives">Posts</a>
+                
+                    <a class="menu-item" href="/blog/category">Categories</a>
+                
+                    <a class="menu-item" href="/blog/tag">Tags</a>
+                
+                    <a class="menu-item" href="/blog/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/blog/">HOME</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/blog/archives">Posts</a>
+                
+                    <a class="menu-item" href="/blog/category">Categories</a>
+                
+                    <a class="menu-item" href="/blog/tag">Tags</a>
+                
+                    <a class="menu-item" href="/blog/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">python数据结构v1</h1>
+            
+                <div class="post-meta">
+                    
+
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="内置数据结构"><a href="#内置数据结构" class="headerlink" title="内置数据结构"></a>内置数据结构</h1><h1 id="python"><a href="#python" class="headerlink" title="#python"></a>#python</h1><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p><strong><em>创建列表</em></strong>：t_list = [‘Google’, ‘Runoob’, 1997, 2000]<br><strong><em>创建二维列表</em></strong>：t_list = [ [0 for i in range(5)] for i in range(5)]<br><strong><em>索引</em></strong>：t_list[0]<br><strong><em>截取</em></strong>：t_list[1:3]<br><strong><em>更新</em></strong>：t_list[2] = 2001<br><strong><em>添加</em></strong>：<br>    ①t_list.append()  列表末尾添加新的对象<br>    ②t_list.insert(index, obj)  将对象插入列表中的指定索引下<br><strong><em>删除</em></strong>：<br>    ①t_list.pop([index=-1])  移除列表中的一个元素（默认最后一个元素），并且返回该元素的值<br>    ②del t_list[2]  删除该索引项<br>    ③t_list.remove()  移除列表中某个值的第一个匹配项<br><strong><em>列表的操作符</em></strong>：<br>    ①+ 号用于组合列表：[1, 2, 3] + [4, 5, 6]<br>    ②* 号用于重复列表：[‘Hi!’] * 4<br><strong><em>列表函数</em></strong>：<br>    ①元素个数：len(t_list)<br>    ②元素最大值：max(t_list)<br>    ③元素最小值：min(t_list)<br><strong><em>其他列表方法</em></strong>：t_list.index(obj)  从列表中找出某个值第一个匹配项的索引位置<br>    ①t_list.reverse()  反向列表中元素<br>    ②t_list.sort( key=None, reverse=False)  对原列表进行排序</p>
+<ul>
+<li>列表的数据项不需要具有相同的类型</li>
+<li>t_list[::2] 即 t_list[start: end: span]</li>
+<li>List也可被当做数组来使用，但由于列表的元素可是任何的对象，因此列表保存的是对象的指针</li>
+</ul>
+<h2 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h2><p><strong><em>创建字典</em></strong>：t_dict = { ‘abc’: 123, 98.6: 37 }<br><strong><em>索引</em></strong>：dict[‘abc’]<br><strong><em>更新</em></strong>：dict[98.6] = 8<br><strong><em>添加</em></strong>：dict[‘School’] = “68”abc<br><strong><em>删除键</em></strong>：del dict[‘abc’]<br><strong><em>删除字典</em></strong>：del dict<br><strong><em>清空字典</em></strong>：dict.clear()     </p>
+<ul>
+<li>键必须是唯一的，但值则不必。</li>
+<li>值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。</li>
+</ul>
+<hr>
+<h1 id="numpy"><a href="#numpy" class="headerlink" title="#numpy"></a>#numpy</h1><h2 id="ndarray-N-维数组对象"><a href="#ndarray-N-维数组对象" class="headerlink" title="ndarray    N 维数组对象"></a>ndarray    N 维数组对象</h2><p><strong><em>创建数组</em></strong>：<br>    ①从python的基础数据对象转化：<br>            从list对象创建 t_array=np.array([1,2,3])<br>    ②通过numpy内置函数生成：<br>            t_array=np.arange(10,20,2)       t_array=np.linspace(1,10,6)<br>            #全零/全一/随机<br>            t_array=np.zeros((1,3))           t_array=np.ones((1,4))<br>            t_array=np.random.random((2,4))<br>    ③从硬盘（文件）中直接读取：<br>            numpy.loadtxt（）    　numpy.savetxt（）<br><strong><em>创建二维数组</em></strong>：<br>    t_array=np.array([[1,2,3], [3,4,5]])<br><strong><em>索引</em></strong>：<br>    凡是适用于list的索引方式都可以被用在ndarray的索引上。<br><strong><em>增删</em></strong>：<br>    np.delete(t_array,1,axis = 0)：删除a的第二行<br>    t_array=t_array[0]    利用查找中的方法，操作完居后只剩一行了<br>    #数组合并<br>        np.vstack((t_array1,t_array2))：上下合并<br>        np.hstack((t_array1,t_array2))：左右合并<br>        np.concatenate((t_array1,t_array2,t_array3,t_array4),axis=0)：上下/左右合并<br>    #数组分割<br>        np.split(t_array,3,axis=1)：上下/左右分割<br>        np.vsplit(t_array,3)：上下分割<br>        np.hsplit(t_array,3)：左右分割<br><strong><em>属性</em></strong>：<br>    ①t_array.ndim：数组的维数，即数组轴的个数，也被称作为秩<br>    ②t_array.shape：数组的行列数<br>    ③t_array.size：数组元素的总个数<br>    ④t_array.dtype：表示数组中元素类型的对象<br><strong><em>方法</em></strong>：<br>    #变形<br>        t_array.reshape() ：改变数组的形状，不改变数组中元素的个数 -1为自动适配<br>        t_array.resize() ：改变数组元素的个数<br>        t_array.transpose(<em>axes) ：返回转置矩阵     t_array.T也可以<br>        t_array.flatten()：将原矩阵转换为一维数组<br>        t_array.reval() ：返回 一维数组<br>    #聚合函数<br>        t_array.tolist()  #  将数组转化为列表<br>        t_array.ptp(axis=None,out=None)：返回数组的最大值-最小值或某一个轴的最大值-最小值<br>        t_array.var(axis=None, dtype=None, out=None, ddof=0)：返回指定轴的 方差<br>        t_array.std(axis=None, dtype=None, out=None, ddof=0)：返回指定轴的返回指定轴的 标准差<br>        t_array.prod(axis=None, dtype=None, out=None)：返回指定轴的所有元素 乘积<br>        t_array.mean(axis=None, dtype=None, out=None)：返回指定轴的数组元素 均值<br>        t_array.sum(axis=None, dtype=None, out=None)：返回指定轴所有元素的 和<br>    #四舍五入、最大、最小<br>        t_array.round(decimals=0, out=None)：按指定的精度进行四舍五入<br>        t_array.min(axis=None, out=None)：返回指定轴的最小值<br>        t_array.max(axis=None, out=None)：返回指定轴的最小值<br>        t_array.argmin(axis=None, out=None): 返回指定轴最小元素的索引<br>        t_array.argmax(axis=None, out=None)：返回指定轴的最大元素索引值<br>**</em>运算<strong><em>：<br>    np.dot(t_array1,t_array2) 矩阵相乘<br>    t_array1</em>t_array2 矩阵点乘<br>    t_array1+t_array2 矩阵相加<br>    t_array1-t_array2<br>    t_array*3 矩阵数乘<br>    t_array/3<br>    t_array</strong>3</p>
+<ul>
+<li>axis参数控制沿哪个轴进行聚合 axis=0 轴是沿着行的方向（向下）axis=1 轴是沿着列的方向（向右）</li>
+</ul>
+<hr>
+<h1 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h1><h2 id="series一维-dataframe多维-带索引的数组"><a href="#series一维-dataframe多维-带索引的数组" class="headerlink" title="series一维    dataframe多维     带索引的数组"></a>series一维    dataframe多维     带索引的数组</h2><p><strong><em>创建</em></strong>：<br>    ①通过基础类型转化：<br>        #列表转化<br>            t_Series = pd.series([1,2,3,4])<br>            t_Series = pd.series(range(4),index = [“a”,”b”,”c”,”d”])<br>            df = pd.DataFrame([1, 2, 3, 4, 5], columns=[‘cols’], index=[‘a’,’b’,’c’,’d’,’e’])<br>            df = pd.DataFrame([[1, 2, 3],[4, 5, 6]], columns=[‘col1’,’col2’,’col3’], index=[‘a’,’b’])<br>        #字典转化<br>            data = {‘Ohio’: 35000, ‘Texas’: 71000, ‘Oregon’: 16000, ‘Utah’: 5000}<br>            t_Series = pd.series(data)<br>    ②从硬盘（文件）中直接读取：<br>        t_Series=pd.read_csv(‘123.csv’)<br>        t_Series.to_csv(‘156.csv’)<br><strong><em>索引</em></strong>：<br>    #通过标签查找<br>        t_Series[‘a’]  访问索引为”a”的元素<br>        t_Series[[‘a’,’c’]]  访问索引为”a”,”c”的元素<br>        t_Series.loc[‘a’]  基于索引’a’来选取数据集<br>        df.loc[[‘a’,’b’]]<br>        df.loc[df.index[1:3]]<br>    #通过位置查找<br>        t_Series[2]    访问位置为2的元素<br>        t_Series.iloc[3:5,2:3] 基于位置来选取数据集<br>    #切片<br>        series1[1:3]<br>        series1[‘b’:’d’]<br>    #布尔索引<br>        series1[series1 &gt; 20]<br>        t_Series[t_Series[2]&gt;10]<br>    #重命名列索引<br>        df.columns=[0]<br><strong><em>删除</em></strong>：<br>    series1.drop(‘c’)<br>    series1.drop([‘a’, ‘d’])<br>    series1.pop(‘d’)<br><strong><em>增添</em></strong>：<br>    series1[‘f’] = 100<br>    series1.append(series2)<br>    df[‘col4’] = [‘5’,’8’]<br>    df2[‘col5’] = pd.DataFrame([‘MachineLearning’,’DeepLearning’],index=[‘a’,’b’])通过一个新的DataFrame对象来定义一个新列,索引自动对应<br><strong><em>运算</em></strong>：<br>    #两个series运算，会自动对齐运算<br>        series1 * series2<br>        series1 * 2<br>    #不对齐运算,将series当做numpy运算<br>        np.sum(series1)<br>        np.add(series1, series2)<br>        np.greater(series1, series2)<br>        df2.sum() 默认是对每列元素求和<br>        df2.sum(1)</p>
+<ul>
+<li>如果没有给Series指定索引，会使用默认索引(从0到N-1)</li>
+<li>Series有自动对齐，对象运算的时候根据其索引进行匹配计算，但若使用numpy函数则不对齐</li>
+<li>适用于numpy的运算也适用于Series</li>
+</ul>
+<h1 id="list、ndarray、dataframe、series的互换"><a href="#list、ndarray、dataframe、series的互换" class="headerlink" title="list、ndarray、dataframe、series的互换"></a>list、ndarray、dataframe、series的互换</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">########### Series ###########</span><br><span class="line">Series &lt;--&gt; DataFrame</span><br><span class="line">*dataframe* &#x3D; pd.DataFrame(&#123;&quot;XXX1&quot;:*series1*,&quot;XXX2&quot;:*series2*&#125;)</span><br><span class="line">*series* &#x3D; *dataframe*[0]  #无标签时</span><br><span class="line">*series* &#x3D; *dataframe*[&quot;XXX&quot;]  #有标签时</span><br><span class="line"></span><br><span class="line">Serise &lt;--&gt; ndarray</span><br><span class="line">*series* &#x3D; pd.Series(*ndarray*) #这里的ndarray是1维的</span><br><span class="line">*ndarray* &#x3D; np.array(*series*)</span><br><span class="line">*ndarray* &#x3D; *series*.values</span><br><span class="line"></span><br><span class="line">Series &lt;--&gt; list</span><br><span class="line">*series* &#x3D; pd.Series(*list*)</span><br><span class="line">*list* &#x3D; *series*.tolist()</span><br><span class="line">*list* &#x3D; list(*series*)</span><br><span class="line"></span><br><span class="line">Series &lt;--&gt; dict</span><br><span class="line">*series* &#x3D; pd.Series(*dict*)</span><br><span class="line">*dict* &#x3D; *series*.to_dict()</span><br><span class="line"></span><br><span class="line">########### DataFrame ###########</span><br><span class="line">DataFrame &lt;--&gt; ndarray</span><br><span class="line">*ndarray* &#x3D; *dataframe*.values</span><br><span class="line">*dataframe* &#x3D; pd.DataFrame(*ndarray*)</span><br><span class="line"></span><br><span class="line">DataFrame &lt;--&gt; list</span><br><span class="line">*list* &#x3D; *dataframe*.values.tolist()</span><br><span class="line">*dataframe* &#x3D; pd.DataFrame(*list*)</span><br><span class="line"></span><br><span class="line">DataFrame &lt;--&gt; dict</span><br><span class="line">*dataframe* &#x3D; pd.DataFrame.from_dict(&#123;0:*dict1*, 1:*dict2*&#125;)</span><br><span class="line">*dataframe* &#x3D; pd.DataFrame(*dict*)</span><br><span class="line">*dict* &#x3D; *dataframe*.to_dict()</span><br><span class="line">*dict* &#x3D; *dataframe*[[&#39;key_col&#39;, &#39;value_col&#39;]].set_index(&#39;key_col&#39;).to_dict()</span><br><span class="line">(*dict* &#x3D; dict[&#39;value_col&#39;])</span><br><span class="line"></span><br><span class="line">########### 其它 list ###########</span><br><span class="line">dict --&gt; list</span><br><span class="line">*list* &#x3D; *dict*.values() # list of values</span><br><span class="line">*list* &#x3D; *dict*.keys() # list of keys</span><br><span class="line">*list* &#x3D; list(*dict*) # list of keys</span><br><span class="line"></span><br><span class="line">ndarray &lt;--&gt; list</span><br><span class="line">*list* &#x3D; *ndarray*.tolist()</span><br><span class="line">*ndarray* &#x3D; np.array(*list*)</span><br><span class="line"></span><br><span class="line">tuple &lt;--&gt; list</span><br><span class="line">*list* &#x3D; list(*tuple*)</span><br><span class="line">*tuple* &#x3D; tuple(*list*)</span><br><span class="line"></span><br><span class="line">Index --&gt; list</span><br><span class="line">*dataframe*.columns.tolist()</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>list 是列表,可以通过索引查找数值，但是不能对整个列表进行数值运算</li>
+<li>array是数组,可以通过索引值查找值，能对整个数组进行数值运算</li>
+<li>Numpy matrix必须是2维的,但是 numpy array(ndarray)可以是多维的. Matrix是Array的一个小的分支，包含于Array，所以matrix 拥有array的所有特性。运算符有所不同。</li>
+<li>array可以和series一起做运算</li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/blog/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/blog/2020/06/26/leetcode%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B/">leetcode问题类型</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
